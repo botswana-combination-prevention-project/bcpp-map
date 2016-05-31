@@ -31,8 +31,12 @@ Include in settings.INSTALLED_APPS:
     ...
     ]
     
+### Other examples
+
+See `bcpp_interview`
+
 ### Issues
 
-If survey model does not exist with print a warning when the AppConfig.ready from `edc_map` loads the sites_mappers
+If survey model does not exist `edc_map.AppConfig.ready` prints a warning based on the `LookupError` from `get_model`.
       
 

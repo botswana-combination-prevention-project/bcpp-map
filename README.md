@@ -3,7 +3,7 @@ Mapper classes for BCPP
 
 ## Installation
 
-    pip install bcpp_map
+    pip install git+https://github.com/botswana-harvard/bcpp-map@develop#egg=bcpp_map
 
 Include in settings.INSTALLED_APPS:
 

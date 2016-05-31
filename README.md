@@ -37,6 +37,10 @@ See `bcpp_interview`
 
 ### Issues
 
+The mappers have a fair amount of BCPP specific code. Maybe the `mappers` try to do too much. However, other studies can still use the mappers to help locate subjects.  
+
+### Warning on load
+
 If survey model does not exist `edc_map.AppConfig.ready` prints a warning based on the `LookupError` from `get_model`.
       
 

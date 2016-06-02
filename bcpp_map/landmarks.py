@@ -1,3 +1,5 @@
+# format ((name, longitude, latitude), )
+
 DIGAWANA_LANDMARKS = (
     ('Assemblies Of God Church', -25.34146098, 25.55841599),
     ('Celtic / Phunya Selesele Field', -25.35176704, 25.56173497),

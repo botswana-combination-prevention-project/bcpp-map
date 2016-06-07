@@ -23,8 +23,8 @@ class MasungaPlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -20.667218
-    gps_center_lon = 27.428340
+    center_lat = -20.667218
+    center_lon = 27.428340
     radius = 7.5
     location_boundary = ()
 

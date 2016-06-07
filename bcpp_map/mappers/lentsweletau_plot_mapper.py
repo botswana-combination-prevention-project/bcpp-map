@@ -21,8 +21,8 @@ class LentsweletauPlotMapper(BasePlotMapper):
 
     landmarks = LENTSWELETAU_LANDMARKS
 
-    gps_center_lat = -24.252443
-    gps_center_lon = 25.854249
+    center_lat = -24.252443
+    center_lon = 25.854249
     radius = 5.0
     location_boundary = ()
 

@@ -23,8 +23,8 @@ class MetsimotlhabePlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -24.554426
-    gps_center_lon = 25.809554
+    center_lat = -24.554426
+    center_lon = 25.809554
     radius = 7.5
     location_boundary = ()
 

@@ -23,8 +23,8 @@ class MolapowabojangPlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -25.204009
-    gps_center_lon = 25.562754
+    center_lat = -25.204009
+    center_lon = 25.562754
     radius = 5.5
     location_boundary = ()
 

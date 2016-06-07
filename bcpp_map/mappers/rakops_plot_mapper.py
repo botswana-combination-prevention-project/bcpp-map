@@ -23,8 +23,8 @@ class RakopsPlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -21.034979
-    gps_center_lon = 24.401214
+    center_lat = -21.034979
+    center_lon = 24.401214
     radius = 5.5
     location_boundary = ()
 

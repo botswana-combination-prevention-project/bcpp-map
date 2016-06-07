@@ -22,8 +22,8 @@ class MmadinarePlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -21.869753
-    gps_center_lon = 27.753179
+    center_lat = -21.869753
+    center_lon = 27.753179
     radius = 7.5
     location_boundary = ()
 

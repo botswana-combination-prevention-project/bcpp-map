@@ -23,8 +23,8 @@ class NataPlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -20.207917
-    gps_center_lon = 26.184711
+    center_lat = -20.207917
+    center_lon = 26.184711
     radius = 5.5
     location_boundary = ()
 

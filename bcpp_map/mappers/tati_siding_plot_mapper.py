@@ -23,8 +23,8 @@ class TatiSidingPlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -21.274018
-    gps_center_lon = 27.474822
+    center_lat = -21.274018
+    center_lon = 27.474822
     radius = 6.5
     location_boundary = ()
 

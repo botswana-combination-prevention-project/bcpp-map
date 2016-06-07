@@ -23,8 +23,8 @@ class RanakaPlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -24.908703
-    gps_center_lon = 25.463033
+    center_lat = -24.908703
+    center_lon = 25.463033
     radius = 4
     location_boundary = ()
 

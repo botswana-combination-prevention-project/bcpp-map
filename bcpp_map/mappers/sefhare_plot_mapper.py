@@ -23,8 +23,8 @@ class SefharePlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -23.027271
-    gps_center_lon = 27.526095
+    center_lat = -23.027271
+    center_lon = 27.526095
     radius = 5.5
     location_boundary = ()
 

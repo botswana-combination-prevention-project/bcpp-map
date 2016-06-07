@@ -23,8 +23,8 @@ class MathangwanePlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -20.993214
-    gps_center_lon = 27.333963
+    center_lat = -20.993214
+    center_lon = 27.333963
     radius = 6.5
     location_boundary = ()
 

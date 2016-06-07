@@ -24,8 +24,8 @@ class GwetaPlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -20.205621
-    gps_center_lon = 25.251474
+    center_lat = -20.205621
+    center_lon = 25.251474
     radius = 5.5
     location_boundary = ()
 

@@ -23,8 +23,8 @@ class ShakawePlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -18.360902
-    gps_center_lon = 21.836862
+    center_lat = -18.360902
+    center_lon = 21.836862
     radius = 11
     location_boundary = ()
 

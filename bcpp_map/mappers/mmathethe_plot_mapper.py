@@ -23,8 +23,8 @@ class MmathethePlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -25.320035
-    gps_center_lon = 25.266402
+    center_lat = -25.320035
+    center_lon = 25.266402
     radius = 5.5
     location_boundary = ()
 

@@ -23,9 +23,9 @@ class OodiPlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -24.425856
-    gps_center_lon = 26.021626
-    radius = 5.5
+    center_lat = -24.425856
+    center_lon = 26.021626
+    radius = 50.0  # 5.5
     location_boundary = ()
 
     survey_dates = {

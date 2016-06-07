@@ -23,8 +23,8 @@ class LeralaPlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -22.7830257
-    gps_center_lon = 27.7605844
+    center_lat = -22.7830257
+    center_lon = 27.7605844
     radius = 5.5
     location_boundary = ()
 

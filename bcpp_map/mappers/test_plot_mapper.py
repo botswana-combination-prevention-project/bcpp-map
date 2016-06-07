@@ -22,8 +22,8 @@ class TestPlotMapper(BasePlotMapper):
 
     landmarks = DIGAWANA_LANDMARKS
 
-    gps_center_lat = -25.330451
-    gps_center_lon = 25.556502
+    center_lat = -25.330451
+    center_lon = 25.556502
     radius = 3.5
     location_boundary = ()
 

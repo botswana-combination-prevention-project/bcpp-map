@@ -23,8 +23,8 @@ class ShoshongPlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -23.032546
-    gps_center_lon = 26.516352
+    center_lat = -23.032546
+    center_lon = 26.516352
     radius = 6.0
     location_boundary = ()
 

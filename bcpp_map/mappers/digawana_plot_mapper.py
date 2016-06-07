@@ -14,20 +14,17 @@ from .base_plot_mapper import BasePlotMapper
 
 class DigawanaPlotMapper(BasePlotMapper):
 
+    center_lat = -25.330451
+    center_lon = 25.556502
+    intervention = True
+    landmarks = DIGAWANA_LANDMARKS
+    location_boundary = ()
     map_area = 'digawana'
     map_code = '12'
     pair = 1
+    radius = 3.5
     regions = SECTIONS
     sections = SUB_SECTIONS
-
-    landmarks = DIGAWANA_LANDMARKS
-
-    gps_center_lat = -25.330451
-    gps_center_lon = 25.556502
-    radius = 3.5
-    location_boundary = ()
-
-    intervention = True
 
     survey_dates = {
         BASELINE_SURVEY_SLUG: SurveyDatesTuple(

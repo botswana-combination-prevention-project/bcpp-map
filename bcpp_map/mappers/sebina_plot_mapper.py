@@ -3,7 +3,6 @@ from datetime import date
 
 from edc_map.site_mappers import site_mappers
 
-from ..choices import SECTIONS, SUB_SECTIONS
 from ..constants import BASELINE_SURVEY_SLUG
 from ..landmarks import SEBINA_LANDMARKS
 from ..structures import ClinicDaysTuple, SurveyDatesTuple
@@ -16,15 +15,10 @@ class SebinaPlotMapper(BasePlotMapper):
     map_area = 'sebina'
     map_code = '28'
     pair = 10
-    regions = SECTIONS
-    sections = SUB_SECTIONS
-
     landmarks = SEBINA_LANDMARKS
-
     intervention = False
-
-    gps_center_lat = -20.806103
-    gps_center_lon = 27.200003
+    center_lat = -20.806103
+    center_lon = 27.200003
     radius = 6.5
     location_boundary = ()
 

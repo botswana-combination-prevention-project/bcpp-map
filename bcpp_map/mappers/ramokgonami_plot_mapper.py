@@ -23,8 +23,8 @@ class RamokgonamiPlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -22.8658437618
-    gps_center_lon = 27.4198811366
+    center_lat = -22.8658437618
+    center_lon = 27.4198811366
     radius = 5.5
     location_boundary = ()
 

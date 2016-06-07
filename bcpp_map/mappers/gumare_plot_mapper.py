@@ -23,8 +23,8 @@ class GumarePlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -19.359734
-    gps_center_lon = 22.163286
+    center_lat = -19.359734
+    center_lon = 22.163286
     radius = 5.5
     location_boundary = ()
 

@@ -23,8 +23,8 @@ class MmankgodiPlotMapper(BasePlotMapper):
 
     intervention = True
 
-    gps_center_lat = -24.729571
-    gps_center_lon = 25.649351
+    center_lat = -24.729571
+    center_lon = 25.649351
     radius = 5.5
     location_boundary = ()
 

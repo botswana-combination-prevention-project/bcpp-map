@@ -23,8 +23,8 @@ class MmandunyanePlotMapper(BasePlotMapper):
 
     intervention = False
 
-    gps_center_lat = -20.994015
-    gps_center_lon = 27.334564
+    center_lat = -20.994015
+    center_lon = 27.334564
     radius = 6.5
     location_boundary = ()
 

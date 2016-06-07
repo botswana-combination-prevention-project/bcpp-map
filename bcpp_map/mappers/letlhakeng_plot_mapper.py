@@ -21,8 +21,8 @@ class LetlhakengPlotMapper(BasePlotMapper):
 
     landmarks = LETLHAKENG_LANDMARKS
 
-    gps_center_lat = -24.099361
-    gps_center_lon = 25.032163
+    center_lat = -24.099361
+    center_lon = 25.032163
     radius = 5.0
     location_boundary = ()
 

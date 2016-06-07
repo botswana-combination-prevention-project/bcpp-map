@@ -5,83 +5,31 @@ from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
 from edc_map.mapper import Mapper
-from edc_map.choices import ICONS, OTHER_ICONS
-from edc_device import device
-
-# declare your own app to change the default item_model and survey_model
-bcpp_map = django_apps.get_app_config('bcpp_map')
+from edc_device.device import Device
+from bcpp_map.choices import SECTIONS, SUB_SECTIONS
 
 
 class BasePlotMapper(Mapper):
 
+    app_config = django_apps.get_app_config('bcpp_map')
+    clinic_days = {}
+    intervention = None
+    location_boundary = None
+    map_code = None
+    pair = None
+    survey_dates = {}
+    regions = SECTIONS
+    sections = SUB_SECTIONS
+
     def __init__(self):
-        self.name = self.map_area or self.map_code or 'mapper {}'.format(self.__class__.name)
+        super(BasePlotMapper, self).__init__()
         self.active = None
+        if settings.CURRENT_COMMUNITY == self.map_area:
+            self.active = True
         if self.intervention is None:
             self.intervention_code = None
         else:
             self.intervention_code = 'CPC' if self.intervention else 'ECC'
-        if settings.CURRENT_COMMUNITY == self.map_area:
-            self.active = True
-        try:
-            self.item_model = django_apps.get_model(*bcpp_map.mapper_model)
-            self.item_model_cls = self.item_model
-            self.item_label = self.item_model._meta.verbose_name
-        except LookupError as e:
-            print('  Warning. Lookup error in mapper {}. Got {}'.format(self.name, str(e)))
-        try:
-            self.survey_model = django_apps.get_model(*bcpp_map.mapper_survey_model)
-        except LookupError as e:
-            print('  Warning. Lookup error in mapper {}. Got {}'.format(self.name, str(e)))
-
-    map_code = None
-    map_area = None
-    pair = None
-
-    region_field_attr = 'section'
-    region_label = 'Section'
-    section_field_attr = 'sub_section'
-    section_label = 'Sub Section'
-    map_area_field_attr = 'community'
-
-    # different map fields, the numbers are the zoom levels
-    map_field_attr_18 = 'uploaded_map_18'
-    map_field_attr_17 = 'uploaded_map_17'
-    map_field_attr_16 = 'uploaded_map_16'
-
-    target_gps_lat_field_attr = 'gps_target_lat'
-    target_gps_lon_field_attr = 'gps_target_lon'
-    icons = ICONS
-    other_icons = OTHER_ICONS
-
-    identifier_field_attr = 'plot_identifier'
-    identifier_field_label = 'plot'
-    other_identifier_field_attr = 'cso_number'
-    other_identifier_field_label = 'cso'
-
-    item_target_field = 'bhs'
-    item_selected_field = 'selected'
-
-    gps_degrees_s_field_attr = 'gps_degrees_s'
-    gps_degrees_e_field_attr = 'gps_degrees_e'
-    gps_minutes_s_field_attr = 'gps_minutes_s'
-    gps_minutes_e_field_attr = 'gps_minutes_e'
-
-    map_area = None
-    map_code = None
-    regions = None
-    sections = None
-
-    landmarks = None
-
-    intervention = None
-
-    gps_center_lat = None
-    gps_center_lon = None
-    radius = None
-    location_boundary = None
-
-    current_survey_in_settings = settings.CURRENT_SURVEY
 
     def __repr__(self):
         return '{}(\'{}\')'.format(self.__class__.__name__, self.map_area)
@@ -92,15 +40,12 @@ class BasePlotMapper(Mapper):
 
     @property
     def __dict__(self):
-        return {
-            'map_area': self.map_area,
+        dct = super(BasePlotMapper, self).__dict__
+        return dct.update({
             'map_code': self.map_code,
-            'gps_center_lat': self.gps_center_lat,
-            'gps_center_lon': self.gps_center_lon,
-            'radius': self.radius,
             'intervention': self.intervention,
             'survey_dates': self.survey_dates,
-            'clinic_days': self.clinic_days}
+            'clinic_days': self.clinic_days})
 
     def verify_survey_dates(self):
         """Verifies that the dates fall within the survey for the current community."""
@@ -138,8 +83,8 @@ class BasePlotMapper(Mapper):
     @property
     def test_location(self):
         """Decimal Degrees = Degrees + minutes/60 + seconds/3600"""
-        degrees_e, minutes_e = self.deg_to_dms(self.gps_center_lon)
-        degrees_s, minutes_s = self.deg_to_dms(self.gps_center_lat)
+        degrees_e, minutes_e = self.deg_to_dms(self.center_lon)
+        degrees_s, minutes_s = self.deg_to_dms(self.center_lat)
         return (degrees_s, minutes_s, degrees_e, minutes_e)
 
     @property
@@ -159,6 +104,7 @@ class BasePlotMapper(Mapper):
     def clinic_plot(self):
         """Returns and, if needed, creates a non-residential plot to represent the CLINIC."""
         # We can only do this on community servers, not on netbooks or central server.
+        device = Device()
         Plot = self.item_model
         try:
             plot = Plot.objects.get(plot_identifier=self.clinic_plot_identifier)

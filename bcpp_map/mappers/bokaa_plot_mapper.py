@@ -14,20 +14,17 @@ from .base_plot_mapper import BasePlotMapper
 
 class BokaaPlotMapper(BasePlotMapper):
 
+    center_lat = -24.425856
+    center_lon = 26.021626
+    intervention = False
+    landmarks = BOKAA_LANDMARKS
+    location_boundary = ()
     map_area = 'bokaa'
     map_code = '17'
     pair = 4
+    radius = 5.5
     regions = SECTIONS
     sections = SUB_SECTIONS
-
-    landmarks = BOKAA_LANDMARKS
-
-    intervention = False
-
-    gps_center_lat = -24.425856
-    gps_center_lon = 26.021626
-    radius = 5.5
-    location_boundary = ()
 
     survey_dates = {
         BASELINE_SURVEY_SLUG: SurveyDatesTuple(

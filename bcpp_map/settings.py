@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'edc_map',
     'bcpp_map.apps.BcppMapAppConfig',
 ]
 
@@ -122,3 +123,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 CURRENT_SURVEY = 'bcpp-year-1'
 CURRENT_COMMUNITY = None
+GIT_DIR = BASE_DIR

@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'edc_map',
     'bcpp_map.apps.BcppMapAppConfig',
 ]
 

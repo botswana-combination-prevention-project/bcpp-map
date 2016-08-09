@@ -1,6 +1,5 @@
 from datetime import datetime, time
 
-from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
@@ -11,7 +10,6 @@ from bcpp_map.choices import SECTIONS, SUB_SECTIONS
 
 class BasePlotMapper(Mapper):
 
-    app_config = django_apps.get_app_config('bcpp_map')
     clinic_days = {}
     intervention = None
     location_boundary = None

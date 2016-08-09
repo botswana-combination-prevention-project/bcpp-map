@@ -1,8 +1,6 @@
-from edc_map.apps import EdcMapAppConfig
+from django.apps import AppConfig as DjangoAppConfig
 
 
-class BcppMapAppConfig(EdcMapAppConfig):
+class AppConfig(DjangoAppConfig):
     name = 'bcpp_map'
     verbose_name = 'BCPP Mapper'
-    mapper_model = ('bcpp_household', 'plot')
-    mapper_survey_model = ('bcpp_survey', 'survey')

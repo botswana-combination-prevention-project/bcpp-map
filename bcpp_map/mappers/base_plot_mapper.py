@@ -1,11 +1,13 @@
 from datetime import datetime, time
 
+from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
 from edc_map.mapper import Mapper
-from edc_device.device import Device
 from bcpp_map.choices import SECTIONS, SUB_SECTIONS
+
+edc_device_app_config = django_apps.get_app_config('edc_device')
 
 
 class BasePlotMapper(Mapper):
@@ -22,7 +24,7 @@ class BasePlotMapper(Mapper):
     def __init__(self):
         super(BasePlotMapper, self).__init__()
         self.active = None
-        if settings.CURRENT_COMMUNITY == self.map_area:
+        if settings.CURRENT_MAP_AREA == self.map_area:
             self.active = True
         if self.intervention is None:
             self.intervention_code = None
@@ -102,12 +104,11 @@ class BasePlotMapper(Mapper):
     def clinic_plot(self):
         """Returns and, if needed, creates a non-residential plot to represent the CLINIC."""
         # We can only do this on community servers, not on netbooks or central server.
-        device = Device()
         Plot = self.item_model
         try:
             plot = Plot.objects.get(plot_identifier=self.clinic_plot_identifier)
         except Plot.DoesNotExist:
-            if device.is_community_server:
+            if edc_device_app_config.device.is_node_server:
                 plot = Plot.objects.create(
                     plot_identifier=self.clinic_plot_identifier,
                     household_count=1,
